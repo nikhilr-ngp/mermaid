@@ -36,3 +36,19 @@ sequenceDiagram
     Your_App->>Jira_API: Call API with access_token
     Jira_API-->>Your_App: Return Jira data (e.g., user info, issues)
 ```
+
+``` mermaid
+sequenceDiagram
+    participant App
+    participant Jira_API
+    participant Jira_DB
+
+    App->>Jira_API: POST /filter (create JQL filter)
+    Jira_API-->>App: Return filterId
+
+    App->>Jira_API: POST /board with name, type, filterId
+    Jira_API->>Jira_DB: Save board data
+    Jira_DB-->>Jira_API: Success response
+    Jira_API-->>App: Return board ID, name, type
+
+```
