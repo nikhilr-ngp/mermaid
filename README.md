@@ -18,8 +18,8 @@ sequenceDiagram
     Jira_Auth_Server-->>Your_App: access_token (+ optional refresh_token)
     Your_App->>Jira_API: Call API with Bearer access_token
     Jira_API-->>Your_App: JSON response with Jira data
-
-## ⚡ Jira OAuth 2.0 Flow (Consent Already Given)
+```
+## Jira OAuth 2.0 Flow 
 
 ```mermaid
 sequenceDiagram
@@ -35,3 +35,4 @@ sequenceDiagram
     Jira_Auth_Server-->>Your_App: Return access_token (+ refresh_token)
     Your_App->>Jira_API: Call API with access_token
     Jira_API-->>Your_App: Return Jira data (e.g., user info, issues)
+```
