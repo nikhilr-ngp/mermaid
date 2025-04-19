@@ -1,6 +1,27 @@
 # mermaid
 
 ##  Jira OAuth 2.0 Flow
+```mermaid
+
+graph LR
+    subgraph Input Modalities
+        direction LR
+        A[Text]
+        B[Voice]
+        C[Image]
+        D[Video]
+    end
+    Input --> E(Multimodal Input Layer);
+    E --> F{Hybrid Tokenization};
+    F -- Subword --> G[24-layer Transformer Backbone <br> with 1024-dim hidden layers];
+    F -- WordPiece --> G;
+    F -- Whisper --> G;
+    F -- CLIP --> G;
+    G --> H{Memory-Augmented RAG <br> FAISS-based retrieval <br> with health knowledge graphs};
+    H --> I(Adaptive Fine-Tuning <br> RLHF and LoRA-based <br> continual learning);
+    I --> J[Output/Downstream Tasks];
+
+```
 
 ```mermaid
 sequenceDiagram
