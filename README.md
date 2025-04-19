@@ -2,7 +2,6 @@
 
 ##  Jira OAuth 2.0 Flow
 ```mermaid
-
 graph LR
     subgraph Input Modalities
         direction LR
@@ -20,8 +19,6 @@ graph LR
     G --> H{Memory-Augmented RAG <br> FAISS-based retrieval <br> with health knowledge graphs};
     H --> I(Adaptive Fine-Tuning <br> RLHF and LoRA-based <br> continual learning);
     I --> J[Output/Downstream Tasks];
-
-
 ```
 
 ```mermaid
