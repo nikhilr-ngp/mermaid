@@ -3,13 +3,7 @@
 ##  Jira OAuth 2.0 Flow
 ```mermaid
 graph LR
-    subgraph Input Modalities
-        direction LR
-        A[Text]
-        B[Voice]
-        C[Image]
-        D[Video]
-    end
+
     Input --> E(Multimodal Input Layer);
     E --> F{Hybrid Tokenization};
     F -- Subword --> G[24-layer Transformer Backbone <br> with 1024-dim hidden layers];
