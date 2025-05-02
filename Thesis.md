@@ -11,7 +11,7 @@ graph TD
 
     B1 --> C1a[RabbitMQ Streaming]
     B1 --> C1b[Gmail Tariff Ingestion]
-    B1 --> C1c[Cloud Storage (GCS)]
+    B1 --> C1c[Cloud Storage GCS]
 
     B2 --> C2a[Airflow DAG Scheduling]
     B2 --> C2b[DBT Transformation]
