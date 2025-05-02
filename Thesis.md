@@ -1,19 +1,38 @@
 ``` mermaid
-flowchart TD
-    Start([Start]) --> IngestAPI[Ingest real-time data via API]
-    Start --> IngestBatch[Ingest batch data via FTP]
-    IngestAPI --> StoreGCS[Store raw data in Google Cloud Storage]
-    IngestBatch --> StoreGCS
-    SupplierPricing[Extract Supplier Pricing from Gmail] --> StoreGCS
+graph TD
+    A[Smart Metering & Pricing ETL Pipeline]
 
-    StoreGCS --> AirflowTrigger[Trigger Airflow Workflow]
-    AirflowTrigger --> dbtRun[Run dbt Models for Transformation]
-    dbtRun --> LoadBigQuery[Load Transformed Data to BigQuery]
+    A --> B1[Data Ingestion]
+    A --> B2[Data Processing]
+    A --> B3[Forecasting & API]
+    A --> B4[Visualization]
+    A --> B5[User Access & Auth]
+    A --> B6[Monitoring & Logs]
 
-    LoadBigQuery --> UpdatePriceBook[Update Price Book View]
-    LoadBigQuery --> RefreshLooker[Refresh Looker Studio Dashboards]
-    UpdatePriceBook --> End([End])
-    RefreshLooker --> End
+    B1 --> C1a[RabbitMQ Streaming]
+    B1 --> C1b[Gmail Tariff Ingestion]
+    B1 --> C1c[Cloud Storage (GCS)]
+
+    B2 --> C2a[Airflow DAG Scheduling]
+    B2 --> C2b[DBT Transformation]
+    B2 --> C2c[Validation & Cleansing]
+
+    B3 --> C3a[Flask REST APIs]
+    B3 --> C3b[Pricing Forecast Module]
+    B3 --> C3c[Historical Query Handler]
+
+    B4 --> C4a[Looker Studio Dashboards]
+    B4 --> C4b[Vue.js Frontend]
+    B4 --> C4c[Role-Based Views]
+
+    B5 --> C5a[Login / Signup]
+    B5 --> C5b[OAuth 2.0 Integration]
+    B5 --> C5c[Session Handling]
+
+    B6 --> C6a[Error Logging]
+    B6 --> C6b[DAG Monitoring]
+    B6 --> C6c[Alert Notifications]
+
 ```
 
 ```
